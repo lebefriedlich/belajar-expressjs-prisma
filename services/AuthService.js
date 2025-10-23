@@ -33,6 +33,10 @@ class AuthService {
 
     return { user, token };
   }
+
+  async getAllUsers() {
+    return await authRepository.getAllUsers();
+  }
 }
 
 module.exports = new AuthService();

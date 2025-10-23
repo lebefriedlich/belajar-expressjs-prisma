@@ -35,6 +35,15 @@ class AuthRepository {
   async findById(id) {
     return await prisma.user.findUnique({ where: { id } });
   }
+
+  // Fungsi untuk mendapatkan semua user
+  async getAllUsers() {
+    return await prisma.user.findMany({
+      where: {
+        role: { name: "USER" },
+      },
+    });
+  }
 }
 
 module.exports = new AuthRepository();
