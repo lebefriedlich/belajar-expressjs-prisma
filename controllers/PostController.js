@@ -44,9 +44,9 @@ class PostController {
 
   static async createPost(req, res) {
     const { title, content } = req.body;
-    const userId = req.user.id; // Assuming user ID is available in req.user
+    const user_id = req.user.id; // Assuming user ID is available in req.user
     const validator = await Validator.make(
-      { title, content, userId },
+      { title, content, user_id },
       {
         title: "required|string",
         content: "required|string",
@@ -59,7 +59,7 @@ class PostController {
       });
     }
     try {
-      const newPost = await PostService.createPost({ title, content, userId });
+      const newPost = await PostService.createPost({ title, content, user_id });
       res.status(201).json({
         status_code: 201,
         message: "Post created successfully",
@@ -76,7 +76,7 @@ class PostController {
   static async updatePost(req, res) {
     const { id } = req.params;
     const { title, content } = req.body;
-    const userId = req.user.id; // Assuming user ID is available in req.user
+    const user_id = req.user.id; // Assuming user ID is available in req.user
     const validator = await Validator.make(req.body, {
       title: "required|string",
       content: "required|string",
@@ -91,7 +91,7 @@ class PostController {
       const updatedPost = await PostService.updatePost(id, {
         title,
         content,
-        userId,
+        user_id,
       });
       if (!updatedPost) {
         return res.status(404).json({

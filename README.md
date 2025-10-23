@@ -47,26 +47,28 @@ This project demonstrates a simple backend built using **Express.js** and **Pris
    npm install
    ```
 
-3. Set up your Prisma schema and database connection:
-
-   - Edit the `prisma/schema.prisma` file to configure your database connection (for example, SQLite, PostgreSQL, or MySQL).
-   - Run Prisma migrations to set up the database schema:
-
-     ```bash
-     npx prisma migrate dev
-     ```
-
-4. Create a `.env` file to store environment variables. Example `.env` file:
+3. Create a `.env` file to store environment variables. Example `.env` file:
 
    ```env
    DATABASE_URL="your_database_connection_string"
    JWT_SECRET="your_jwt_secret_key"
    ```
 
+4. Set up your Prisma schema and database connection:
+
+   - Edit the `prisma/schema.prisma` file to configure your database connection (for example, SQLite, PostgreSQL, or MySQL).
+   - Run Prisma migrations to set up the database schema:
+
+     ```bash
+     npx prisma migrate dev
+     npm run seed
+     ```
+
+
 5. Run the application:
 
    ```bash
-   npm start
+   npm run dev
    ```
    Your application will be available at http://localhost:3000.
    

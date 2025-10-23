@@ -21,7 +21,7 @@ class AuthRepository {
         name: data.name,
         email: data.email,
         password: data.password,
-        id_role: role ? role.id : undefined, // Gunakan ID role yang ditemukan atau biarkan undefined
+        role_id: role ? role.id : undefined, // Gunakan ID role yang ditemukan atau biarkan undefined
       },
     });
   }
